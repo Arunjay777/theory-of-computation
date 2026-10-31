@@ -1,0 +1,22 @@
+# Object files and binaries
+*.o
+01_dfa_start_end_a
+02_dfa_start_0_end_1
+03_cfg_0A1
+04_cfg_palindrome
+05_cfg_0S0_A
+06_cfg_0S1
+07_cfg_substring_101
+08_nfa_start_b_end_a
+09_nfa_start_0_end_1
+10_nfa_epsilon_closure
+11_epsilon_nfa_to_dfa
+12_dfa_simulator_strings
+13_pda_simulator_aabb
+14_pda_simulator_an_b2n
+15_tm_simulator_an_bn
+16_tm_simulator_an_b2n
+17_tm_simulator_palindrome
+
+# macOS artifacts
+.DS_Store

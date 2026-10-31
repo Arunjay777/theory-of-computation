@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<structure>
+	<type>pda</type>
+	<automaton>
+		<state id="0" name="q0">
+			<x>100.0</x>
+			<y>150.0</y>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>260.0</x>
+			<y>150.0</y>
+		</state>
+		<state id="2" name="q2">
+			<x>420.0</x>
+			<y>150.0</y>
+			<final/>
+		</state>
+		<!-- Push A on first 'a' -->
+		<transition>
+			<from>0</from>
+			<to>0</to>
+			<read>a</read>
+			<pop>Z</pop>
+			<push>AZ</push>
+		</transition>
+		<!-- Push A on subsequent 'a's -->
+		<transition>
+			<from>0</from>
+			<to>0</to>
+			<read>a</read>
+			<pop>A</pop>
+			<push>AA</push>
+		</transition>
+		<!-- Switch to q1 and pop A on first 'b' -->
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>b</read>
+			<pop>A</pop>
+			<push/>
+		</transition>
+		<!-- Pop A on subsequent 'b's -->
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>b</read>
+			<pop>A</pop>
+			<push/>
+		</transition>
+		<!-- Accept by final state when stack has Z -->
+		<transition>
+			<from>1</from>
+			<to>2</to>
+			<read/>
+			<pop>Z</pop>
+			<push>Z</push>
+		</transition>
+	</automaton>
+</structure>

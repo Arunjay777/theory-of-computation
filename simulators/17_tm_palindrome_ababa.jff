@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<structure>
+	<type>turing</type>
+	<tapes>1</tapes>
+	<automaton>
+		<state id="0" name="q0">
+			<x>80.0</x>
+			<y>180.0</y>
+			<initial/>
+		</state>
+		<state id="1" name="q1">
+			<x>200.0</x>
+			<y>100.0</y>
+		</state>
+		<state id="2" name="q2">
+			<x>200.0</x>
+			<y>260.0</y>
+		</state>
+		<state id="3" name="q3">
+			<x>340.0</x>
+			<y>100.0</y>
+		</state>
+		<state id="4" name="q4">
+			<x>340.0</x>
+			<y>260.0</y>
+		</state>
+		<state id="5" name="q5">
+			<x>480.0</x>
+			<y>180.0</y>
+		</state>
+		<state id="6" name="q_accept">
+			<x>80.0</x>
+			<y>320.0</y>
+			<final/>
+		</state>
+		<!-- In q0: Read 'a' -> erase with blank, move R to q1 -->
+		<transition>
+			<from>0</from>
+			<to>1</to>
+			<read>a</read>
+			<write/>
+			<move>R</move>
+		</transition>
+		<!-- In q0: Read 'b' -> erase with blank, move R to q2 -->
+		<transition>
+			<from>0</from>
+			<to>2</to>
+			<read>b</read>
+			<write/>
+			<move>R</move>
+		</transition>
+		<!-- In q0: Read blank -> empty/finished palindrome -> Accept -->
+		<transition>
+			<from>0</from>
+			<to>6</to>
+			<read/>
+			<write/>
+			<move>R</move>
+		</transition>
+		<!-- In q1: Scan right to end of tape -->
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>a</read>
+			<write>a</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>1</to>
+			<read>b</read>
+			<write>b</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>1</from>
+			<to>3</to>
+			<read/>
+			<write/>
+			<move>L</move>
+		</transition>
+		<!-- In q2: Scan right to end of tape -->
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>a</read>
+			<write>a</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>b</read>
+			<write>b</write>
+			<move>R</move>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>4</to>
+			<read/>
+			<write/>
+			<move>L</move>
+		</transition>
+		<!-- In q3: Check matching 'a' -->
+		<transition>
+			<from>3</from>
+			<to>5</to>
+			<read>a</read>
+			<write/>
+			<move>L</move>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>6</to>
+			<read/>
+			<write/>
+			<move>R</move>
+		</transition>
+		<!-- In q4: Check matching 'b' -->
+		<transition>
+			<from>4</from>
+			<to>5</to>
+			<read>b</read>
+			<write/>
+			<move>L</move>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>6</to>
+			<read/>
+			<write/>
+			<move>R</move>
+		</transition>
+		<!-- In q5: Return left to beginning of tape -->
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>a</read>
+			<write>a</write>
+			<move>L</move>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>b</read>
+			<write>b</write>
+			<move>L</move>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>0</to>
+			<read/>
+			<write/>
+			<move>R</move>
+		</transition>
+	</automaton>
+</structure>
